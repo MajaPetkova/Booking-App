@@ -9,12 +9,13 @@
 .featuredItem{
     position: relative;
     color:white;
-    border-radius: 0.7rem;
+    border-radius: 0.5rem;
     overflow: hidden;
+    height: 250px;
 }
 .featuredImg{
-    height: 300px;
     width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 .featuredTitles{
