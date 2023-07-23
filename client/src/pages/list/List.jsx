@@ -1,5 +1,11 @@
+import { Header } from "../../components/header/Header"
+import { Navbar } from "../../components/navbar/Navbar"
+
 export const List=()=>{
     return (
-        <div>List</div>
+        <div>
+            <Navbar/>
+            <Header type="list"/>
+        </div>
     )
 }

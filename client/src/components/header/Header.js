@@ -14,7 +14,7 @@ import { format } from "date-fns";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
-export const Header = () => {
+export const Header = ({type}) => {
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -40,7 +40,7 @@ export const Header = () => {
 
   return (
     <div className="header">
-      <div className="headerContainer">
+      <div className={type === "list" ?"headerContainer listMode" :"headerContainer"}>
         <div className="headerList">
           <div className="headerListItem active">
             <FaBed />
@@ -63,6 +63,8 @@ export const Header = () => {
             <span>Airport taxis</span>
           </div>
         </div>
+        { type !== "list" &&
+        <>
         <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
         <p className="headerDescription">
           Get rewarded for your travels - unlock instant savings of 10% and more
@@ -99,8 +101,8 @@ export const Header = () => {
           </div>
           <div className="headerSearchItem">
             <FaChild className="headerIcon" />
-            <span className="headerSearchText">{`${options.adult} adult . ${options.children} children . ${options.rooms} rooms `}</span>
-            <div className="options">
+            <span onClick={()=>setOpenOptions(!openOptions)} className="headerSearchText">{`${options.adult} adult . ${options.children} children . ${options.rooms} rooms `}</span>
+            {openOptions && <div className="options" >
               <div className="optionItem">
                 <span className="optionText">Adult</span>
                 <div className="optionBox">
@@ -125,12 +127,12 @@ export const Header = () => {
                 <button className="optionCounterButton" onClick={()=>handleOption("rooms", "i")}>+</button>
                 </div>
               </div>
-            </div>
+            </div>}
           </div>
           <div className="headerSearchItem">
             <button className="headerBtn">Search</button>
           </div>
-        </div>
+        </div></>}
       </div>
     </div>
   );
