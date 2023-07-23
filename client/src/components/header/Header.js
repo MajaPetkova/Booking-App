@@ -1,5 +1,13 @@
 import "./header.css";
-import { FaBed, FaPlane, FaCar, FaTaxi, FaBuilding } from "react-icons/fa";
+import {
+  FaBed,
+  FaPlane,
+  FaCar,
+  FaTaxi,
+  FaBuilding,
+  FaCalendarDay,
+  FaChild,
+} from "react-icons/fa";
 
 export const Header = () => {
   return (
@@ -28,8 +36,32 @@ export const Header = () => {
           </div>
         </div>
         <h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
-         <p className="headerDescription">Get rewarded for your travels - unlock instant savings of 10% and more with a free Booking account</p>
-         <button className="headerBtn">Sign In / Register</button>
+        <p className="headerDescription">
+          Get rewarded for your travels - unlock instant savings of 10% and more
+          with a free Booking account
+        </p>
+        <button className="headerBtn">Sign In / Register</button>
+        <div className="headerSearch">
+          <div className="headerSearchItem">
+            <FaBed  className="headerIcon"/>
+            <input
+              type="text"
+              placeholder="Where are you going?"
+              className="headerSearchInput"
+            />
+          </div>
+          <div className="headerSearchItem">
+            <FaCalendarDay  className="headerIcon"/>
+            <span className="headerSearchText">date to date</span>
+          </div>
+          <div className="headerSearchItem">
+            <FaChild className="headerIcon" />
+            <span className="headerSearchText">2 adults 2 children 1 room</span>
+          </div>
+          <div className="headerSearchItem">
+            <button className="headerBtn">Search</button>
+          </div>
+        </div>
       </div>
     </div>
   );
