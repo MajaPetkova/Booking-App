@@ -4,13 +4,12 @@
     display: flex;
     justify-content: space-between;
     gap:1rem;
-    z-index: -1;
 }
 .pItem{
     position: relative;
     border-radius: 0.5rem;
     overflow: hidden;
-    height: 250px;
+    height: 200px;
 }
 .pListImg{
     width: 100%;
