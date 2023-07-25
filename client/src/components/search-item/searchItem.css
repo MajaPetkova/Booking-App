@@ -1,0 +1,54 @@
+.searchItem {
+  border: solid 0.1rem lightgray;
+  border-radius: 0.4rem;
+  padding: 0.6em;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+}
+.siImg {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+.siDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 2;
+}
+.siTitle {
+  font-size: 1.2rem;
+  color: #0071c2;
+}
+.siDistance {
+  font-size: 0.8rem;
+}
+.siTaxiOp {
+  font-size: 0.8rem;
+  background-color: #008009;
+  color: white;
+  width: max-content;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+}
+.siSubtitle {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.siFeatures {
+  font-size: 0.8rem;
+}
+.siCancelOp {
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #008009;
+}
+.siCancelOpSubtitle {
+font-size: 0.8rem;
+    color: #008009;
+}
+.siDetails {
+  flex: 1;
+}

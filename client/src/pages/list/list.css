@@ -7,6 +7,7 @@
   width: 100%;
   max-width: 1024px;
   display: flex;
+  gap:1rem
 }
 .listSearch {
   flex: 1;
@@ -57,7 +58,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.6rem;
-  color: grey;
+  color: rgb(97, 96, 96);
   font-size: 0.8rem;
 }
 .listSearch>button{
