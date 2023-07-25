@@ -3,9 +3,10 @@ import { FeaturedProperties } from "../../components/featured-properties/Feature
 import { Header } from "../../components/header/Header";
 import { Navbar } from "../../components/navbar/Navbar";
 import { Propertylist } from "../../components/propertyList/PropertyList";
+import { MailList } from "../../components/mail-list/MailList";
+import { Footer } from "../../components/footer/Footer";
 
 import "./home.css";
-import { MailList } from "../../components/mail-list/MailList";
 
 export const Home = () => {
   return (
@@ -19,6 +20,7 @@ export const Home = () => {
         <h1 className="homeTitle">Home guests love</h1>
         <FeaturedProperties/>
         <MailList/>
+        <Footer/>
       </div>
     </div>
   );
