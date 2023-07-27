@@ -39,11 +39,36 @@ export const Hotel = () => {
             Book a stay over $114 at this property and get a free airport taxi
           </span>
           <div className="hotelImages">
-            {photos.map(x=>{
-                return(               <div className="hotelImgWrapper">
-                <img src={x.src} alt=""  className="hotelImg"/>
-               </div>)
+            {photos.map((x) => {
+              return (
+                <div className="hotelImgWrapper">
+                  <img src={x.src} alt="" className="hotelImg" />
+                </div>
+              );
             })}
+          </div>
+          <div className="hotelDetails">
+            <div className="hotelDetailsText">
+              <p className="hotelDescription">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Dolorum quis nihil mollitia autem ullam, delectus obcaecati
+                assumenda quas iure expedita libero amet veritatis voluptatem
+                suscipit fugiat officiis saepe esse rem? Accusantium corrupti
+                facilis earum quasi obcaecati id maiores sequi quia molestiae
+                quas expedita eligendi cupiditate dolor quis impedit suscipit
+                laboriosam tempore animi rerum, quaerat sapiente possimus ad.
+                Praesentium ea distinctio quas tempora ipsa mollitia dolorum
+                explicabo, veniam fugit porro rerum!
+              </p>
+            </div>
+            <div className="hotelDetailsPrice">
+                <h2>Perfect for a 9-night stay!</h2>
+                <span>
+                    Located in the heart of new York, Location is excellent with score od 9.8!
+                </span>
+                <h3><b>$945</b>(9 Nights)</h3>
+                <button>Reserve or Book now!</button>
+            </div>
           </div>
         </div>
       </div>
