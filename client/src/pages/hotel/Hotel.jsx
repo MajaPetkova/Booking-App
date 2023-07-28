@@ -2,6 +2,8 @@ import { Header } from "../../components/header/Header";
 import { Navbar } from "../../components/navbar/Navbar";
 import { GoLocation } from "react-icons/go";
 import "./hotel.css";
+import { MailList } from "../../components/mail-list/MailList";
+import { Footer } from "../../components/footer/Footer";
 
 export const Hotel = () => {
   const photos = [
@@ -27,6 +29,7 @@ export const Hotel = () => {
       <Header type="list" />
       <div className="hotelContainer">
         <div className="hotelWrapper">
+          <button className="book">Reserve or Book Now!</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
           <div className="hotelAddress">
             <GoLocation />
@@ -49,6 +52,7 @@ export const Hotel = () => {
           </div>
           <div className="hotelDetails">
             <div className="hotelDetailsText">
+              <h2 className="hotelTitle">Stay in the heart of New York</h2>
               <p className="hotelDescription">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Dolorum quis nihil mollitia autem ullam, delectus obcaecati
@@ -62,7 +66,7 @@ export const Hotel = () => {
               </p>
             </div>
             <div className="hotelDetailsPrice">
-                <h2>Perfect for a 9-night stay!</h2>
+                <h1>Perfect for a 9-night stay!</h1>
                 <span>
                     Located in the heart of new York, Location is excellent with score od 9.8!
                 </span>
@@ -72,6 +76,8 @@ export const Hotel = () => {
           </div>
         </div>
       </div>
+        <MailList/>
+        <Footer/>
     </div>
   );
 };
