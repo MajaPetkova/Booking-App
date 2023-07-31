@@ -34,19 +34,34 @@ export const Hotel = () => {
     setSlideNumber(i);
     setOpenImg(true);
   };
+  const closeSlider = () => {
+    setOpenImg(false);
+  };
+  const handleMove = (direction) => {
+    let newSlideIndex;
+    if (direction === "l") {
+      newSlideIndex = slideNumber === 0 ? 5 : slideNumber - 1;
+    } else {
+      newSlideIndex = slideNumber === 5 ? 0 : slideNumber + 1;
+    }
+    setSlideNumber(newSlideIndex)
+  };
   return (
     <div>
       <Navbar />
-      <Header type="list"/>
+      <Header type="list" />
       <div className="hotelContainer">
         {openImg && (
           <div className="slider">
-            <FaRegWindowClose />
-            <FaArrowLeft />
+            <FaRegWindowClose className="closeBtn" onClick={closeSlider} />
+            <FaArrowLeft className="arrowBtn" onClick={() => handleMove("l")} />
             <div className="sliderWrapper">
-              <img src={photos[slideNumber].src} alt="" />
+              <img src={photos[slideNumber].src} alt="hotelImg" />
             </div>
-            <FaArrowRight />
+            <FaArrowRight
+              className="arrowBtn"
+              onClick={() => handleMove("r")}
+            />
           </div>
         )}
         <div className="hotelWrapper">
@@ -70,7 +85,7 @@ export const Hotel = () => {
                     src={x.src}
                     alt=""
                     className="hotelImg"
-                    onClick={()=>handleOpen(i)}
+                    onClick={() => handleOpen(i)}
                   />
                 </div>
               );
