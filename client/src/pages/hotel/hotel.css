@@ -11,16 +11,15 @@
   flex-direction: column;
   gap: 1.2rem;
   position: relative;
-
 }
 .book {
   position: absolute;
   right: 0rem;
-  top:1rem;
-  color:white;
+  top: 1rem;
+  color: white;
   background-color: #0071c2;
   border: none;
-  padding:0.7rem 1rem ;
+  padding: 0.7rem 1rem;
   border-radius: 0.2rem;
   font-weight: bold;
   cursor: pointer;
@@ -55,43 +54,83 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.hotelDetails{
-    display: flex;
-    justify-content: space-between;
-    gap:1.2rem;
-    margin-top:1.2rem ;
+.hotelDetails {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
 }
-.hotelDetailsText{
-    flex:3
+.hotelDetailsText {
+  flex: 3;
 }
-.hotelDescription{
-    font-size:0.8rem ;
-    margin-top: 1.2rem;
+.hotelDescription {
+  font-size: 0.8rem;
+  margin-top: 1.2rem;
 }
-.hotelDetailsPrice{
-    flex:1;
-    background-color: #ebf3ff;
-    padding: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    gap:0.5rem
+.hotelDetailsPrice {
+  flex: 1;
+  background-color: #ebf3ff;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.hotelDetailsPrice>h1{
-    font-size: 1.1rem;
-    color: #555;
+.hotelDetailsPrice > h1 {
+  font-size: 1.1rem;
+  color: #555;
 }
-.hotelDetailsPrice>span{
-    font-size: 0.9rem;
+.hotelDetailsPrice > span {
+  font-size: 0.9rem;
 }
-.hotelDetailsPrice>h3{
-    font-weight: 300;
+.hotelDetailsPrice > h3 {
+  font-weight: 300;
 }
-.hotelDetailsPrice>button{
-    background-color: #0071c2;
-    color: white;
-    border: none;
-    padding:0.7rem 1rem ;
-    border-radius: 0.2rem;
-    font-weight: bold;
-    cursor: pointer;
+.hotelDetailsPrice > button {
+  background-color: #0071c2;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 0.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.slider {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.426);
+  z-index: 999;
+  align-items: center;
+  display: flex;
+}
+
+.sliderWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sliderWrapper>img{
+  width: 75%;
+  height: 90vh;
+}
+.closeBtn{
+position: absolute;
+top:1.5rem;
+right:1.5rem;
+font-size: 1.5rem;
+cursor: pointer;
+
+}
+.arrowBtn{
+margin: 1rem;
+font-size: 3rem;
+background-color: lightgrey;
+border-radius: 50%;
+padding: 0.5rem;
+cursor: pointer;
 }
