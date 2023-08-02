@@ -22,6 +22,18 @@ async function start() {
   app.use("/api/rooms", roomsRoute);
   app.use("/api/users", usersRoute);
 
+app.use((err, req, res, next)=>{
+  const errorStatus= err.status || 500;
+  const errorMsg = err.message || "Something went wrong";
+  return res.status(errorStatus).json({
+    success: false,
+    status:errorStatus,
+    message:errorMsg,
+    stack:err.stack
+  })
+})
+
+
   app.listen(5000, () => console.log("Connected to backend!"));
 }
 start();
