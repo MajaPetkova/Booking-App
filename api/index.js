@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieParser= require("cookie-parser")
 const authRoute = require("./routes/auth");
 const hotelsRoute = require("./routes/hotels");
 const usersRoute = require("./routes/users");
@@ -16,6 +17,7 @@ async function start() {
     return process.exit(1);
   }
   //  middlewares
+  app.use(cookieParser())
   app.use(express.json())
   app.use("/api/auth", authRoute);
   app.use("/api/hotels", hotelsRoute);
