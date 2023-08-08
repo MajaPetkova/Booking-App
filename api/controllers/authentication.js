@@ -32,10 +32,10 @@ const login = async (req, res, next) => {
     if (!isPasswordCorrect) {
       return next(new Error( "Username or Password are not correct"));
     }
-    const token= jwt.sign({id:user._id, isAdmin:user.isAdmin}, "gdkgdhjdghjfjdhpoofdf" );
+    const token= jwt.sign({id:user._id, isAdmin:user.isAdmin}, process.env.JWT );
 
     const{password, hashedPassword, ...otherDetails}= user._doc;
-    res.cookie("access-token", token, {httpOnly: true}).status(200).json({...otherDetails});
+    res.cookie("access_token", token, {httpOnly: true}).status(200).json({...otherDetails});
   } catch (err) {
     next(err);
   }
