@@ -5,7 +5,7 @@ const {
   updateUser,
   deleteUser,
 } = require("../controllers/userController");
-const { verifyToken, verifyUser } = require("../utils.js/verifyToken");
+const { verifyToken, verifyUser, verifyAdmin } = require("../utils.js/verifyToken");
 
 const router = express.Router();
 
@@ -15,6 +15,9 @@ router.get("/checkAuthentication", verifyToken, (req, res, next) => {
 router.get("/checkUser/:id", verifyUser, (req, res, next) => {
   res.send("Hello User, you are authenticated and you can delete your account");
 });
+router.get("/checkAdmin/:id", verifyAdmin, (req, res, next) => {
+    res.send("Hello Admin, you are logged in and you can delete any account");
+  });
 router.get("/", getAllUsers);
 router.get("/:id", getUser);
 router.put("/:id", updateUser);
