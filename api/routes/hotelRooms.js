@@ -5,7 +5,7 @@ const {createRoom, updateRoom, deleteRoom, getRoom, getRooms} = require("../cont
 
 router.post("/:hotelId", verifyAdmin, createRoom )
 router.put("/:id", verifyAdmin, updateRoom);
-router.delete("/:id", verifyAdmin, deleteRoom);
+router.delete("/:id/:hotelId", verifyAdmin, deleteRoom);
 router.get("/:id", getRoom);
 router.get("/", getRooms)
 
