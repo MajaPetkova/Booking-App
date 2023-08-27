@@ -17,8 +17,8 @@ const updateHotel = async (req, res, next) => {
       { $set: req.body },
       { new: true }
     );
-    const savedHotel = await newHotel.save();
-    res.status(200).json(savedHotel);
+  
+    res.status(200).json(updatedHotel);
   } catch (err) {
     // res.status(500).json(err);
     next(err);
@@ -28,7 +28,6 @@ const updateHotel = async (req, res, next) => {
 const deleteHotel = async (req, res, next) => {
   try {
     await Hotel.findByIdAndDelete(req.params.id);
-    const savedHotel = await newHotel.save();
     res.status(200).json("Hotel has been deleted");
   } catch (err) {
     // res.status(500).json(err);
