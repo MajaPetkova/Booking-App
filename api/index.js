@@ -5,6 +5,7 @@ const authRoute = require("./routes/auth");
 const hotelsRoute = require("./routes/hotels");
 const usersRoute = require("./routes/users");
 const roomsRoute = require("./routes/hotelRooms");
+const cors = require("./middlewares/cors");
 
 async function start() {
   const app = express();
@@ -19,6 +20,7 @@ async function start() {
   //  middlewares
   app.use(cookieParser())
   app.use(express.json())
+  app.use(cors());
   app.use("/api/auth", authRoute);
   app.use("/api/hotels", hotelsRoute);
   app.use("/api/rooms", roomsRoute);
