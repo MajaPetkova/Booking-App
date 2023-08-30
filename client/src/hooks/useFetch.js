@@ -10,7 +10,7 @@ export const useFetch = (url) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("http://localhost:5000/api/hotels/countByCity?cities=berlin,Barcelona,Bitola");
+        const res = await axios.get(url);
         setData(res.data);
         // console.log(res.data);
       } catch (err) {
