@@ -4,10 +4,11 @@ import { GoLocation } from "react-icons/go";
 import "./hotel.css";
 import { MailList } from "../../components/mail-list/MailList";
 import { Footer } from "../../components/footer/Footer";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaRegWindowClose } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
+import { SearchContext } from "../../context/SearchContext";
 
 export const Hotel = () => {
   const location = useLocation()
@@ -15,7 +16,19 @@ export const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [openImg, setOpenImg] = useState(false);
 
-  const {data, loading, error} = useFetch(`http://localhost:5000/api/hotels/find/${id}`)
+  const {data, loading, error} = useFetch(`http://localhost:5000/api/hotels/find/${id}`);
+  const {dates, options} = useContext(SearchContext);
+  // console.log(options.rooms)
+
+  const MILLISECONDS_PER_DAY = 1000*60*60*24;
+
+  function dayDifference(date1, date2){
+    const timeDiff= Math.abs(date2.getTime() - date1.getTime())
+    const diffDays= Math.ceil (timeDiff / MILLISECONDS_PER_DAY)
+    return diffDays
+  }
+  const days= (dayDifference(dates[0].endDate, dates[0].startDate))
+
   // const photos = [
   //   {
   //     src: "https://images.unsplash.com/photo-1679678691263-cc7f30ce02f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxzZWFyY2h8MXx8aG90ZWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60",
@@ -107,13 +120,13 @@ export const Hotel = () => {
               </p>
             </div>
             <div className="hotelDetailsPrice">
-              <h1>Perfect for a 9-night stay!</h1>
+              <h1>Perfect for a {days}-night stay!</h1>
               <span>
                 Located in the heart of new York, Location is excellent with
                 score od 9.8!
               </span>
               <h3>
-                <b>$945</b>(9 Nights)
+                <b>${days * data.cheapestPrice * options.rooms}</b>({days} Nights)
               </h3>
               <button>Reserve or Book now!</button>
             </div>
