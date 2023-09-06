@@ -30,7 +30,7 @@ export const SearchItem = ({x}) => {
         <div className="siDetailsTexts">
           <span className="siPrice">$ {x.cheapestPrice}</span>
           <span className="siTaxOp">Includes taxes and fees</span>
-          <Link to={`http://localhost:5000/api/hotels/find/${x._id}`}>
+          <Link to={`http://localhost:3000/hotel/${x._id}`}>
           <button className="siCheckBtn">See availability</button>
           </Link>
         </div>
