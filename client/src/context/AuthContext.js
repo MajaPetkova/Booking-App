@@ -38,7 +38,7 @@ const authReducer = (state, action) => {
   }
 };
 
-export const SearchContextProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, INITIAL_STATE);
 
 
