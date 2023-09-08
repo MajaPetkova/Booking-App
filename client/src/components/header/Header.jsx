@@ -15,6 +15,7 @@ import { format } from "date-fns";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 export const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -33,6 +34,7 @@ export const Header = ({ type }) => {
     rooms: 1,
   });
   const navigate = useNavigate();
+  const {user} = useContext(AuthContext)
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -88,7 +90,7 @@ export const Header = ({ type }) => {
               Get rewarded for your travels - unlock instant savings of 10% and
               more with a free Booking account
             </p>
-            <button className="headerBtn">Sign In / Register</button>
+           {!user && <button className="headerBtn">Sign In / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FaBed className="headerIcon" />
