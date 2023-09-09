@@ -32,7 +32,7 @@ export const List = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label htmlFor="city">Destination</label>
-              <input type="text" placeholder={destination} />
+              <input type="text" placeholder={destination}/>
             </div>
             <div className="lsItem">
               <label htmlFor="city">Check-in Date</label>
