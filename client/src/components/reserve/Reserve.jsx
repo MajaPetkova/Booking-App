@@ -25,7 +25,7 @@ export const Reserve = ({ setOpen, hotelId }) => {
   };
   const allDates = getDatesInRange(dates[0].startDate, dates[0].endDate);
 
-  
+
   const isAvailable = (roomNumber) => {
     const isFound = roomNumber.unavailableDates.some((date) =>
       allDates.includes(new Date(date).getTime())
@@ -64,23 +64,25 @@ export const Reserve = ({ setOpen, hotelId }) => {
               </div>
               <div className="resPrice">{item.price}</div>
             </div>
+            <div className="resSelectRooms">
             {item.roomNumbers.map((roomNumber) => (
-              <div className="room" key={item.roomNumber}>
+                <div className="room" key={item.roomNumber}>
                 <label>{roomNumber.number}</label>
                 <input
                   type="checkbox"
                   value={roomNumber._id}
                   onChange={handleSelect}
                   disabled={!isAvailable(roomNumber)}
-                ></input>
+                  ></input>
               </div>
             ))}
           </div>
+        </div>
         ))}
         <button className="resBtn" onClick={handleClick}>
           Reserve Now
         </button>
       </div>
     </div>
-  );
+    );
 };
