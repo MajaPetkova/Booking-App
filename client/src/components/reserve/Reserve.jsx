@@ -3,6 +3,8 @@ import "./reserve.css";
 import { useFetch } from "../../hooks/useFetch";
 import { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Reserve = ({ setOpen, hotelId }) => {
   const { data, loading, error } = useFetch(
@@ -10,6 +12,7 @@ export const Reserve = ({ setOpen, hotelId }) => {
   );
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { dates } = useContext(SearchContext);
+  const navigate = useNavigate()
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -42,7 +45,18 @@ export const Reserve = ({ setOpen, hotelId }) => {
         : selectedRooms.filter((item) => item !== value)
     );
   };
-  const handleClick = () => {};
+  const handleClick = async() => {
+    try{
+      await Promise.all(selectedRooms.map((roomId)=> {
+         const res = axios.put(`http://localhost:5000/api/rooms/availability/${roomId}`, {dates: allDates});
+         return res.data
+      }))
+      setOpen(false);
+      navigate("/")
+    }catch(err){
+
+    }
+  };
 
   return (
     <div className="reserve">
